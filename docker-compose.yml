@@ -1,0 +1,16 @@
+version: '3'
+services:
+  api:
+    image: "shafiqullahturkmen/jobs-api"
+    mem_limit: 128m
+    hostname: api
+    environment:
+      - MONGO_URI=$MONGO_URI
+      - JWT_SECRET=$JWT_SECRET
+      - JWT_LIFETIME=$JWT_LIFETIME
+  nginx:
+    image: "shafiqullahturkmen/multi-nginx"
+    mem_limit: 128m
+    hostname: nginx
+    ports:
+      - "80:80"
