@@ -24,7 +24,9 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(helmet());
 app.use(cors());
+app.use(xss());
 
 //Swagger
 const swaggerDocument = YAML.load("./swagger.yaml");
@@ -32,7 +34,6 @@ app.get("/", (req, res) => {
   res.send("<h1>jobs API</h1><a href='/api-docs'>Documentation</a>")
 })
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
-
 
 // routes
 app.use("/api/v1/auth", authRouter);

@@ -4,7 +4,7 @@ info:
   contact: {}
   version: '1.0'
 servers:
-- url: http://jobsapidocker-env.eba-j7vtcpcp.us-east-1.elasticbeanstalk.com/api/v1
+- url: http://localhost:3000/api/v1
   variables: {}
 paths:
   /auth/login:
@@ -104,13 +104,33 @@ paths:
               company: apple
               position: full-stack developer
         required: true
-      responses:
-        '200':
+      post:
+        tags:
+        - Jobs
+        summary: create Job
+        operationId: createJob
+        parameters: []
+        requestBody:
           description: ''
-          headers: {}
-      deprecated: false
-      security:
-      - bearer: []
+          content:
+            application/json:
+              schema:
+                allOf:
+                - $ref: '#/components/schemas/createJobRequest'
+                - example:
+                    company: apple
+                    position: full-stack developer
+              example:
+                company: apple
+                position: full-stack developer
+          required: true
+        responses:
+          '200':
+            description: ''
+            headers: {}
+        deprecated: false
+        security:
+        - bearer: []
     get:
       tags:
       - Jobs
