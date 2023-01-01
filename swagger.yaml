@@ -4,7 +4,7 @@ info:
   contact: {}
   version: '1.0'
 servers:
-- url: http://localhost:3000/api/v1
+- url: https://jobs-api-bych.onrender.com/api/v1
   variables: {}
 paths:
   /auth/login:

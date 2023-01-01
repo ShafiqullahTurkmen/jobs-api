@@ -16,17 +16,17 @@ jobs:
       - run: docker push shafiqullahturkmen/jobs-api
       - run: docker push shafiqullahturkmen/multi-nginx
      
-      - name: Generate deployment package 
-        run:  zip -r deploy.zip . -x "*.git*"
+      # - name: Generate deployment package 
+      #   run:  zip -r deploy.zip . -x "*.git*"
       
-      - name: Deploy to EB
-        uses: einaregilsson/beanstalk-deploy@v18
-        with:
-          aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
-          aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
-          application_name: jobs-api-docker
-          environment_name: Jobsapidocker-env
-          existing_bucket_name: elasticbeanstalk-us-east-1-040884524510
-          region: us-east-1
-          version_label: ${{ github.sha }}
-          deployment_package: deploy.zip
+      # - name: Deploy to EB
+      #   uses: einaregilsson/beanstalk-deploy@v18
+      #   with:
+      #     aws_access_key: ${{ secrets.AWS_ACCESS_KEY }}
+      #     aws_secret_key: ${{ secrets.AWS_SECRET_KEY }}
+      #     application_name: jobs-api-docker
+      #     environment_name: Jobsapidocker-env
+      #     existing_bucket_name: elasticbeanstalk-us-east-1-040884524510
+      #     region: us-east-1
+      #     version_label: ${{ github.sha }}
+      #     deployment_package: deploy.zip
