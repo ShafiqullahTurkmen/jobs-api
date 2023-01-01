@@ -63,12 +63,12 @@ paths:
           headers: {}
       deprecated: false
       security: []
-  /jobs/{id}:
+  /user/{id}:
     parameters:
       - in: path
         name: id
         schema:
-          type: integer
+          type: string
         required: true
         description: The job ID
     delete:
@@ -104,33 +104,13 @@ paths:
               company: apple
               position: full-stack developer
         required: true
-      post:
-        tags:
-        - Jobs
-        summary: create Job
-        operationId: createJob
-        parameters: []
-        requestBody:
+      responses:
+        '200':
           description: ''
-          content:
-            application/json:
-              schema:
-                allOf:
-                - $ref: '#/components/schemas/createJobRequest'
-                - example:
-                    company: apple
-                    position: full-stack developer
-              example:
-                company: apple
-                position: full-stack developer
-          required: true
-        responses:
-          '200':
-            description: ''
-            headers: {}
-        deprecated: false
-        security:
-        - bearer: []
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
     get:
       tags:
       - Jobs
