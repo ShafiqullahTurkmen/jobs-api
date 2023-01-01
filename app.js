@@ -33,9 +33,6 @@ app.get("/", (req, res) => {
 })
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
-app.use(helmet());
-app.use(xss());
-
 
 // routes
 app.use("/api/v1/auth", authRouter);
