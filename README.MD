@@ -1,7 +1,7 @@
 # Jobs API
 ### api link: https://jobs-api-bych.onrender.com/api-docs
 
-![Jobs ApI Swagger Documentation](swagger.png)
+![Jobs ApI Swagger Documentation](img/swagger.png)
 #### Security
 
 - helmet
